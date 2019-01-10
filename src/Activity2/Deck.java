@@ -35,8 +35,9 @@ public class Deck {
      * @param values is an array containing all of the card point values.
      */
     public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-    }
+        for (int i = 0; i < values.length; i ++) {
+            cards.add(new Card(ranks[i], suits[i], values[i]));
+        }    }
 
 
     /**
@@ -44,7 +45,14 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        if ()
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     /**

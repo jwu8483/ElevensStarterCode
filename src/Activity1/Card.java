@@ -26,15 +26,17 @@ public class Card {
     /**
      * Creates a new <code>Card</code> instance.
      *
-     * @param cardRank  a <code>String</code> value
+     * @param rank  a <code>String</code> value
      *                  containing the rank of the card
-     * @param cardSuit  a <code>String</code> value
+     * @param suit  a <code>String</code> value
      *                  containing the suit of the card
-     * @param cardPointValue an <code>int</code> value
+     * @param pointValue an <code>int</code> value
      *                  containing the point value of the card
      */
-    public Card(String cardRank, String cardSuit, int cardPointValue) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+    public Card(String rank, String suit, int pointValue) {
+        this.rank = rank;
+        this.suit = suit;
+        this.pointValue = pointValue;
     }
 
 
@@ -43,7 +45,7 @@ public class Card {
      * @return this <code>Card's</code> suit.
      */
     public String suit() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+        return suit;
 
     }
 
@@ -52,8 +54,7 @@ public class Card {
      * @return this <code>Card's</code> rank.
      */
     public String rank() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-
+        return rank;
     }
 
     /**
@@ -61,7 +62,7 @@ public class Card {
      * @return this <code>Card's</code> point value.
      */
     public int pointValue() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+        return pointValue;
 
     }
 
@@ -72,10 +73,15 @@ public class Card {
      *         false otherwise.
      */
     public boolean matches(Card otherCard) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-
+        if (suit.equals(otherCard.suit) && rank.equals(otherCard.rank) && pointValue == otherCard.pointValue)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-
     /**
      * Converts the rank, suit, and point value into a string in the format
      *     "[Rank] of [Suit] (point value = [PointValue])".
@@ -88,8 +94,7 @@ public class Card {
      */
     @Override
     public String toString() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-
+    return rank + " of " + suit + " point value =" + pointValue + "+";
     }
 }
 
