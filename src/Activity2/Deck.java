@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *      initialize, shuffle, deal, and check if empty.
  */
 public class Deck {
+    private ArrayList<Card> unDealt = new ArrayList<Card>();
+    private ArrayList<Card> dealt = new ArrayList<Card>();
 
     /**
      * cards contains all the cards in the deck.
@@ -45,7 +47,7 @@ public class Deck {
      * @return true if this deck is empty, false otherwise.
      */
     public boolean isEmpty() {
-        if ()
+        if (unDealt.size() == 0)
         {
             return true;
         }
@@ -60,16 +62,23 @@ public class Deck {
      * @return the number of undealt cards in this deck.
      */
     public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-    }
+        return unDealt.size();    }
 
     /**
      * Randomly permute the given collection of cards
      * and reset the size to represent the entire deck.
      */
     public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-    }
+        while (dealt.size() > 0) {
+            unDealt.add(dealt.get(0));
+            dealt.remove(0);
+        }
+        for (int k = 51; k > 0; k --) {
+            int r = (int) (Math.random() * (k + 1));
+            Card c = unDealt.get(r);
+            unDealt.set(r, unDealt.get(k));
+            unDealt.set(k, c);
+        }    }
 
     /**
      * Deals a card from this deck.
@@ -77,7 +86,13 @@ public class Deck {
      *         previously dealt.
      */
     public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+        if (unDealt.size() != 0) {
+            Card card = unDealt.get(0);
+            dealt.add(card);
+            unDealt.remove(0);
+            return card;
+        }
+        else return null;
     }
 
     /**

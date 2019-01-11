@@ -26,18 +26,17 @@ public class Card {
     /**
      * Creates a new <code>Card</code> instance.
      *
-     * @param cardRank  a <code>String</code> value
+     * @param rank  a <code>String</code> value
      *                  containing the rank of the card
-     * @param cardSuit  a <code>String</code> value
+     * @param suit  a <code>String</code> value
      *                  containing the suit of the card
-     * @param cardPointValue an <code>int</code> value
+     * @param pointValue an <code>int</code> value
      *                  containing the point value of the card
      */
-    public Card(String cardRank, String cardSuit, int cardPointValue) {
-        //initializes a new Card with the given rank, suit, and point value
-        rank = cardRank;
-        suit = cardSuit;
-        pointValue = cardPointValue;
+    public Card(String rank, String suit, int pointValue) {
+        this.rank = rank;
+        this.suit = suit;
+        this.pointValue = pointValue;
     }
 
 
@@ -47,6 +46,7 @@ public class Card {
      */
     public String suit() {
         return suit;
+
     }
 
     /**
@@ -63,6 +63,7 @@ public class Card {
      */
     public int pointValue() {
         return pointValue;
+
     }
 
     /** Compare this card with the argument.
@@ -72,11 +73,15 @@ public class Card {
      *         false otherwise.
      */
     public boolean matches(Card otherCard) {
-        return otherCard.suit().equals(this.suit())
-                && otherCard.rank().equals(this.rank())
-                && otherCard.pointValue() == this.pointValue();
+        if (suit.equals(otherCard.suit) && rank.equals(otherCard.rank) && pointValue == otherCard.pointValue)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
-
     /**
      * Converts the rank, suit, and point value into a string in the format
      *     "[Rank] of [Suit] (point value = [PointValue])".
@@ -89,7 +94,7 @@ public class Card {
      */
     @Override
     public String toString() {
-        return rank + " of " + suit + " (point value = " + pointValue + ")";
+        return rank + " of " + suit + " point value =" + pointValue + "+";
     }
 }
 
